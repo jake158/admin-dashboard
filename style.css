@@ -172,5 +172,42 @@ body {
 
 
 .announcements {
+    --linebreak-height: 2px;
+    
+    background-color: blueviolet;
+
+    padding: 35px;
     display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr var(--linebreak-height));
+}
+
+.linebreak {
+    background-color: rgb(163, 163, 163);
+    height: var(--linebreak-height);
+    width: 80%;
+    margin: auto;
+}
+
+
+.trending {
+    background-color: blueviolet;
+
+    display: grid;
+    grid-template: 1fr 1fr / var(--image-size) 1fr;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.trending img {
+    width: var(--image-size);
+    height: var(--image-size);
+    grid-row-end: span 2;
+}
+
+.trending a {
+    align-self: end;
+}
+
+.trending p {
+    align-self: start;
 }
