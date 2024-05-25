@@ -168,17 +168,37 @@ body {
 .project-card {
     min-height: 200px;
     background-color: blueviolet;
+
+    display: grid;
+    grid-template-rows: 1fr var(--icon-size);
+}
+
+.project-btns {
+    height: var(--icon-size);
+    margin-right: 8%;
+
+    justify-self: end;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 15px;
+}
+
+.project-btns button,
+.project-bnts img {
+    height: var(--icon-size);
+    width: var(--icon-size);
 }
 
 
 .announcements {
     --linebreak-height: 2px;
-    
+
     background-color: blueviolet;
 
     padding: 35px;
     display: grid;
     grid-template-rows: repeat(auto-fit, 1fr var(--linebreak-height));
+    gap: 15px;
 }
 
 .linebreak {
