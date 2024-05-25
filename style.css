@@ -93,14 +93,14 @@ body {
     /* Debug */
     background-color: aliceblue;
     /* ----- */
+    padding-left: 3%;
+    padding-right: 8%;
 
     display: grid;
     grid-template-rows: 70px 80px;
 }
 
 .header-top {
-    margin-left: 3%;
-    margin-right: 10%;
 
     display: flex;
     justify-content: space-between;
@@ -127,9 +127,12 @@ body {
 }
 
 .header-bottom {
+    --header-button-width: 80px;
+
     display: grid;
-    grid-template: 1fr 1fr / 1fr 80px 80px 80px;
+    grid-template: 1fr 1fr / 1fr repeat(3, var(--header-button-width));
     grid-auto-flow: column;
+    column-gap: 35px;
 }
 
 .header-bottom p {
@@ -168,6 +171,7 @@ body {
 .project-card {
     min-height: 200px;
     background-color: blueviolet;
+    padding: 20px;
 
     display: grid;
     grid-template-rows: 1fr var(--icon-size);
@@ -175,7 +179,6 @@ body {
 
 .project-btns {
     height: var(--icon-size);
-    margin-right: 8%;
 
     justify-self: end;
     display: grid;
