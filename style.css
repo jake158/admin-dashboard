@@ -36,8 +36,8 @@ input {
 /* Styles */
 
 :root {
-    --icon-size: 60px;
-    --image-size: 70px;
+    --icon-size: 45px;
+    --image-size: 60px;
 }
 
 body {
@@ -45,6 +45,20 @@ body {
 
     display: grid;
     grid-template: 150px 1fr / 1fr 5fr;
+}
+
+/* DEBUG */
+img[src^="imgs/"] {
+    display: inline-block;
+    border: 2px solid red;
+    width: var(--image-size);
+    height: var(--image-size);
+}
+img[src^="icons/"] {
+    display: inline-block;
+    border: 2px solid blue;
+    width: var(--icon-size);
+    height: var(--icon-size);
 }
 
 
@@ -161,12 +175,13 @@ body {
 }
 
 .main-content>div {
+    --top-title-offset: -30px;
     position: relative;
 }
 
 .main-content>div>h2 {
     position: absolute;
-    top: -25px;
+    top: var(--top-title-offset);
 }
 
 
@@ -203,6 +218,22 @@ body {
 }
 
 
+.announcements-trending {
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.announcements-trending > div {
+    position: relative;
+}
+
+.announcements-trending > div > h2 {
+    position: absolute;
+    top: var(--top-title-offset);
+}
+
 .announcements {
     --linebreak-height: 2px;
 
@@ -224,24 +255,16 @@ body {
 
 .trending {
     background-color: blueviolet;
-    padding: 25px;
+    padding: 20px;
 
     display: grid;
-    grid-template: 1fr 1fr / var(--image-size) 1fr;
+    grid-template-columns: var(--image-size) 1fr;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 20px;
+    row-gap: 10px;
 }
 
-.trending img {
-    width: var(--image-size);
-    height: var(--image-size);
-    grid-row-end: span 2;
-}
-
-.trending a {
-    align-self: end;
-}
-
-.trending p {
-    align-self: start;
+.trending div {
+    display: grid;
+    row-gap: 5px;
 }
