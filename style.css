@@ -1,4 +1,11 @@
-/* Fonts */
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/inter-regular-webfont.woff2') format('woff2'),
+        url('fonts/inter-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 
 /* Quick reset */
@@ -42,15 +49,50 @@ input {
     --main: #3C3F58;
     --secondary: #2E3047;
     --third: #35384e;
-    --accent: #31C7A4;
+    --accent: #35d4af;
+    --accent-hover: #3becc3;
 }
 
 body {
     min-height: 100vh;
+    --font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "inter", var(--font-family);
 
     display: grid;
     grid-template: 150px 1fr / minmax(250px, 290px) 1fr;
 }
+
+p {
+    max-width: 66ch;
+}
+
+p, h1, h2, h3, a, button {
+    color: #f1f2f8;
+}
+
+.project-text p,
+.announcement p,
+.trending div p {
+    color: #c9cbd3;
+}
+
+.announcement a {
+    font-size: 1.05rem;
+}
+
+.announcement p {
+    font-size: 0.9rem;
+}
+
+.project-text p,
+.trending div p {
+    font-size: 1.05rem;
+}
+
+a {
+    text-decoration: none;
+}
+
 
 .sidebar,
 .project-card,
@@ -76,6 +118,10 @@ body {
     opacity: 0.5;
 }
 
+.announcements .linebreak {
+    width: 95%;
+}
+
 
 /* DEBUG */
 
@@ -91,6 +137,37 @@ img[src^="icons/"] {
     border: 2px solid blue;
     width: var(--icon-size);
     height: var(--icon-size);
+}
+
+button {
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    background-image: none;
+    border: 0 none;
+    /* added these */
+}
+
+.header-bottom button {
+    display: inline-block;
+    background-color: var(--accent);
+    border-radius: 10px;
+    color: var(--secondary);
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+}
+
+.header-bottom button:hover {
+    background-color: var(--accent-hover);
+}
+
+.header-bottom button:active {
+    background-color: var(--accent);
 }
 
 
@@ -115,8 +192,6 @@ img[src^="icons/"] {
 
 .sidebar, .sidebar a {
     font-size: 1.3rem;
-    text-decoration: none;
-    color: white;
 }
 
 .sidebar>div {
@@ -199,12 +274,10 @@ img[src^="icons/"] {
 
 .main-content {
     font-size: 0.9rem;
-    padding: 30px;
-    padding-top: 50px;
-    padding-right: 45px;
+    padding: 50px 45px 15px 30px;
 
     display: grid;
-    grid-template: 1fr 1fr / 1fr minmax(300px, 350px);
+    grid-template: 1fr 1fr / 1fr 300px;
     gap: 30px;
 }
 
@@ -235,15 +308,29 @@ img[src^="icons/"] {
 
 .project-card {
     max-height: 290px;
-    padding: 20px;
+    /* trbl */
+    padding: 30px 20px 30px 20px;
     border-left: 10px solid var(--accent);
 
     display: grid;
     grid-template-rows: 1fr var(--icon-size);
 }
 
-.project-btns {
+.project-card:hover {
+    border-left: 10px solid var(--accent-hover);
+}
 
+.project-card .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-text {
+    padding-bottom: 10px;
+}
+
+.project-card .project-btns {
     justify-self: end;
     display: grid;
     grid-auto-flow: column;
@@ -265,16 +352,25 @@ img[src^="icons/"] {
 .announcements-trending>div>h2 {
     position: absolute;
     top: var(--top-title-offset);
+    left: 0px;
 }
 
 .announcements {
-
     padding: 25px;
 
-    display: grid;
-    grid-template-rows: repeat(auto-fit, 1fr var(--linebreak-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 15px;
 }
+
+.announcement {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 
 .trending {
     padding: 20px;
@@ -288,5 +384,5 @@ img[src^="icons/"] {
 
 .trending div {
     display: grid;
-    row-gap: 5px;
+    row-gap: 6px;
 }
