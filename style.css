@@ -38,16 +38,47 @@ input {
 :root {
     --icon-size: 45px;
     --image-size: 60px;
+
+    --main: #3C3F58;
+    --secondary: #2E3047;
+    --third: #35384e;
+    --accent: #31C7A4;
 }
 
 body {
     min-height: 100vh;
 
     display: grid;
-    grid-template: 150px 1fr / 1fr 5fr;
+    grid-template: 150px 1fr / minmax(250px, 290px) 1fr;
 }
 
+.sidebar,
+.project-card,
+.announcements,
+.trending {
+    background-color: var(--main);
+}
+
+.header,
+.main-content {
+    background-color: var(--secondary);
+}
+
+
+.linebreak {
+    --linebreak-height: 2px;
+
+    background-color: #5c6286;
+    height: var(--linebreak-height);
+    width: 90%;
+    margin: auto;
+    border-radius: 16px;
+    opacity: 0.5;
+}
+
+
 /* DEBUG */
+
 img[src^="imgs/"] {
     display: inline-block;
     border: 2px solid red;
@@ -66,15 +97,20 @@ img[src^="icons/"] {
 /* Sidebar */
 
 .sidebar {
-    /* Debug */
-    background-color: orange;
-    /* ----- */
 
-    padding-left: 25px;
     grid-row: 1 / -1;
     display: grid;
     align-content: start;
-    grid-gap: 30px;
+    grid-gap: 15px;
+}
+
+.sidebar>* {
+    padding-left: 25px;
+}
+
+.sidebar .linebreak {
+    padding-left: 0px;
+    width: 80%;
 }
 
 .sidebar, .sidebar a {
@@ -106,9 +142,6 @@ img[src^="icons/"] {
 /* Header */
 
 .header {
-    /* Debug */
-    background-color: aliceblue;
-    /* ----- */
     padding-left: 3%;
     padding-right: 6%;
 
@@ -165,9 +198,6 @@ img[src^="icons/"] {
 /* Main content */
 
 .main-content {
-    /* Debug */
-    background-color: lightskyblue;
-    /* ----- */
     font-size: 0.9rem;
     padding: 30px;
     padding-top: 50px;
@@ -178,8 +208,14 @@ img[src^="icons/"] {
     gap: 30px;
 }
 
+.project-card,
+.announcements,
+.trending {
+    border-radius: 10px;
+}
+
 .main-content>div {
-    --top-title-offset: -30px;
+    --top-title-offset: -35px;
     position: relative;
 }
 
@@ -198,9 +234,9 @@ img[src^="icons/"] {
 }
 
 .project-card {
-    background-color: blueviolet;
     max-height: 290px;
     padding: 20px;
+    border-left: 10px solid var(--accent);
 
     display: grid;
     grid-template-rows: 1fr var(--icon-size);
@@ -219,7 +255,7 @@ img[src^="icons/"] {
     grid-row: 1 / -1;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 60px;
 }
 
 .announcements-trending>div {
@@ -232,9 +268,7 @@ img[src^="icons/"] {
 }
 
 .announcements {
-    --linebreak-height: 2px;
 
-    background-color: blueviolet;
     padding: 25px;
 
     display: grid;
@@ -242,16 +276,7 @@ img[src^="icons/"] {
     gap: 15px;
 }
 
-.linebreak {
-    background-color: rgb(163, 163, 163);
-    height: var(--linebreak-height);
-    width: 80%;
-    margin: auto;
-}
-
-
 .trending {
-    background-color: blueviolet;
     padding: 20px;
 
     display: grid;
