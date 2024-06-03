@@ -49,8 +49,8 @@ input {
     --main: #3C3F58;
     --secondary: #2E3047;
     --third: #35384e;
-    --accent: #35d4af;
-    --accent-hover: #3becc3;
+    --accent: #3cecc3;
+    --accent-hover: rgb(127, 241, 215);
 }
 
 body {
@@ -66,7 +66,7 @@ p {
     max-width: 66ch;
 }
 
-p, h1, h2, h3, a, button {
+p, h1, h2, h3, a, button, input {
     color: #f1f2f8;
 }
 
@@ -233,14 +233,27 @@ button {
 }
 
 .search {
+    --search-icon-size: 20px;
+
     display: grid;
     align-items: center;
-    grid-template-columns: var(--icon-size) minmax(var(--icon-size), 600px);
-    gap: 20px;
+    grid-template-columns: minmax(var(--search-icon-size), 450px);
+    position: relative;
+}
+
+.search img {
+    width: var(--search-icon-size);
+    height: var(--search-icon-size);
+    position: absolute;
+    left: 12px;
 }
 
 .search input {
     height: 30px;
+    background-color: var(--main);
+    border-radius: 16px;
+    border: 0;
+    padding-left: calc(var(--search-icon-size) + 20px);
 }
 
 .profile-info {
