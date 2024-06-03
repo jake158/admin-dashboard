@@ -43,8 +43,10 @@ input {
 /* Styles */
 
 :root {
-    --icon-size: 45px;
-    --image-size: 60px;
+    --icon-size: 28px;
+    --image-size: 45px;
+
+    --icon-main: invert(100%) sepia(100%) saturate(0%) hue-rotate(3deg) brightness(100%) contrast(104%);
 
     --main: #3C3F58;
     --secondary: #2E3047;
@@ -112,7 +114,7 @@ a {
 
     background-color: #5c6286;
     height: var(--linebreak-height);
-    width: 90%;
+    width: 88%;
     margin: auto;
     border-radius: 16px;
     opacity: 0.5;
@@ -123,8 +125,6 @@ a {
 }
 
 
-/* DEBUG */
-
 img[src^="imgs/"] {
     display: inline-block;
     border: 2px solid red;
@@ -133,10 +133,9 @@ img[src^="imgs/"] {
 }
 
 img[src^="icons/"] {
-    display: inline-block;
-    border: 2px solid blue;
     width: var(--icon-size);
-    height: var(--icon-size);
+    height: auto;
+    filter: var(--icon-main);
 }
 
 button {
@@ -174,15 +173,14 @@ button {
 /* Sidebar */
 
 .sidebar {
-
     grid-row: 1 / -1;
     display: grid;
     align-content: start;
-    grid-gap: 15px;
+    grid-gap: 18px;
 }
 
 .sidebar>* {
-    padding-left: 25px;
+    padding-left: 30px;
 }
 
 .sidebar .linebreak {
@@ -191,16 +189,16 @@ button {
 }
 
 .sidebar, .sidebar a {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 
 .sidebar>div {
-    margin-top: 30px;
+    margin-top: 10px;
 
     display: grid;
     grid-template-columns: var(--icon-size) 1fr;
-    grid-gap: 10px;
-    align-items: center;
+    grid-gap: 22px;
+    align-items: end;
 }
 
 .sidebar img {
@@ -209,8 +207,22 @@ button {
     justify-self: end;
 }
 
+.sidebar>.logo-container {
+    --logo-size: 55px;
+    padding-left: 15px;
+
+    grid-template-columns: var(--logo-size) 1fr;
+    grid-gap: 12px;
+}
+
 .logo-container h1 {
     font-size: 1.75rem;
+}
+
+.logo-container img {
+    width: var(--logo-size);
+    height: auto;
+    justify-self: start;
 }
 
 
@@ -233,7 +245,7 @@ button {
 }
 
 .search {
-    --search-icon-size: 20px;
+    --search-icon-size: 22px;
 
     display: grid;
     align-items: center;
@@ -243,7 +255,7 @@ button {
 
 .search img {
     width: var(--search-icon-size);
-    height: var(--search-icon-size);
+    height: auto;
     position: absolute;
     left: 12px;
 }
@@ -251,9 +263,10 @@ button {
 .search input {
     height: 30px;
     background-color: var(--main);
+    font-size: 14px;
     border-radius: 16px;
     border: 0;
-    padding-left: calc(var(--search-icon-size) + 20px);
+    padding-left: calc(var(--search-icon-size) + 15px);
 }
 
 .profile-info {
