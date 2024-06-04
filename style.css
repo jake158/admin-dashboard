@@ -61,7 +61,7 @@ body {
     font-family: "inter", var(--font-family);
 
     display: grid;
-    grid-template: 150px 1fr / minmax(250px, 290px) 1fr;
+    grid-template: 150px 1fr / minmax(245px, 280px) 1fr;
 }
 
 p {
@@ -69,6 +69,18 @@ p {
 }
 
 p, h1, h2, h3, a, button, input {
+    color: #f1f2f8;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
     color: #f1f2f8;
 }
 
@@ -86,15 +98,9 @@ p, h1, h2, h3, a, button, input {
     font-size: 0.9rem;
 }
 
-.project-text p,
-.trending div p {
-    font-size: 1.05rem;
+.project-text p {
+    font-size: 1.025rem;
 }
-
-a {
-    text-decoration: none;
-}
-
 
 .sidebar,
 .project-card,
@@ -121,7 +127,7 @@ a {
 }
 
 .announcements .linebreak {
-    width: 95%;
+    width: 100%;
 }
 
 
@@ -151,7 +157,6 @@ button {
     outline: none;
     background-image: none;
     border: 0 none;
-    /* added these */
 }
 
 .header-bottom button {
@@ -165,6 +170,7 @@ button {
 
 .header-bottom button:hover {
     background-color: var(--accent-hover);
+    transition: 0.05s ease-in-out;
 }
 
 .header-bottom button:active {
@@ -236,7 +242,7 @@ button {
     padding-right: 45px;
 
     display: grid;
-    grid-template-rows: 85px 60px;
+    grid-template-rows: 85px 42px;
 }
 
 .header-top {
@@ -262,22 +268,33 @@ button {
     position: absolute;
     left: 12px;
     bottom: 6px;
+    pointer-events: none;
 }
 
 .search input {
+    appearance: none;
     height: 32px;
     background-color: var(--main);
     font-size: 15px;
     border-radius: 16px;
-    border: 0;
+    border: 1px solid var(--main);
     padding-left: calc(var(--search-icon-size) + 17px);
+}
+
+.search input:focus {
+    border: 1px solid var(--accent);
+    transition: 0.1s ease-in-out;
+}
+
+.search input:focus-visible {
+    outline: 0;
 }
 
 .profile-info {
     display: grid;
     grid-template-columns: var(--icon-size) var(--image-size) 1fr;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .profile-info a {
@@ -290,13 +307,17 @@ button {
     display: grid;
     grid-template: 1fr / 1fr repeat(3, var(--header-button-width));
     grid-auto-flow: column;
-    column-gap: 35px;
-    align-items: center;
+    column-gap: 28px;
+    align-items: end;
 }
 
 .header-bottom p {
-    font-size: 0.95rem;
     color: var(--accent);
+}
+
+.header-bottom p:hover {
+    color: var(--accent-hover);
+    transition: 0.05s ease-in-out;
 }
 
 .header-bottom button {
@@ -308,7 +329,7 @@ button {
 
 .main-content {
     font-size: 0.9rem;
-    padding: 75px 45px 15px 30px;
+    padding: 65px 45px 15px 30px;
 
     display: grid;
     grid-template: 1fr 1fr / 1fr 300px;
@@ -319,10 +340,11 @@ button {
 .announcements,
 .trending {
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .main-content>div {
-    --top-title-offset: -36px;
+    --top-title-offset: -37px;
     position: relative;
 }
 
@@ -352,6 +374,7 @@ button {
 
 .project-card:hover {
     border-left: 10px solid var(--accent-hover);
+    transition: 0.1s ease-in-out;
 }
 
 .project-card .project-text {
@@ -412,8 +435,8 @@ button {
     display: grid;
     grid-template-columns: var(--image-size) 1fr;
     align-items: center;
-    column-gap: 20px;
-    row-gap: 10px;
+    column-gap: 19px;
+    row-gap: 20px;
 }
 
 .trending div {
