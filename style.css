@@ -50,7 +50,7 @@ input {
 
     --main: #3C3F58;
     --secondary: #2E3047;
-    --third: #35384e;
+    --third: #242638;
     --accent: #3cecc3;
     --accent-hover: rgb(127, 241, 215);
 }
@@ -112,6 +112,8 @@ a:active {
 .header,
 .main-content {
     background-color: var(--secondary);
+    background-image: linear-gradient(110deg, var(--secondary) 20%, var(--third) 100%);
+    background-attachment: fixed;
 }
 
 
@@ -258,7 +260,7 @@ button {
 
     display: grid;
     align-items: center;
-    grid-template-columns: minmax(var(--search-icon-size), 420px);
+    grid-template-columns: minmax(var(--search-icon-size), 480px);
     position: relative;
 }
 
@@ -329,7 +331,7 @@ button {
 
 .main-content {
     font-size: 0.9rem;
-    padding: 65px 45px 15px 30px;
+    padding: 60px 45px 15px 30px;
 
     display: grid;
     grid-template: 1fr 1fr / 1fr 300px;
@@ -357,7 +359,7 @@ button {
 .projects {
     grid-row: 1 / -1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-rows: 1fr;
     gap: 30px;
 }
