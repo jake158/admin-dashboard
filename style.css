@@ -127,9 +127,11 @@ a {
 
 img[src^="imgs/"] {
     display: inline-block;
-    border: 2px solid red;
     width: var(--image-size);
     height: var(--image-size);
+
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 img[src^="icons/"] {
@@ -180,7 +182,7 @@ button {
 }
 
 .sidebar>* {
-    padding-left: 30px;
+    padding-left: 32px;
 }
 
 .sidebar .linebreak {
@@ -193,7 +195,7 @@ button {
 }
 
 .sidebar>div {
-    margin-top: 15px;
+    margin-top: 16px;
 
     display: grid;
     grid-template-columns: var(--icon-size) 1fr;
@@ -209,7 +211,7 @@ button {
 
 .sidebar>.logo-container {
     --logo-size: 55px;
-    padding-left: 17px;
+    padding-left: 19px;
 
     align-items: center;
     grid-template-columns: var(--logo-size) 1fr;
@@ -230,11 +232,11 @@ button {
 /* Header */
 
 .header {
-    padding-left: 3%;
-    padding-right: 6%;
+    padding-left: 30px;
+    padding-right: 45px;
 
     display: grid;
-    grid-template-rows: 70px 80px;
+    grid-template-rows: 85px 60px;
 }
 
 .header-top {
@@ -250,7 +252,7 @@ button {
 
     display: grid;
     align-items: center;
-    grid-template-columns: minmax(var(--search-icon-size), 450px);
+    grid-template-columns: minmax(var(--search-icon-size), 420px);
     position: relative;
 }
 
@@ -259,15 +261,16 @@ button {
     height: auto;
     position: absolute;
     left: 12px;
+    bottom: 6px;
 }
 
 .search input {
-    height: 30px;
+    height: 32px;
     background-color: var(--main);
-    font-size: 14px;
+    font-size: 15px;
     border-radius: 16px;
     border: 0;
-    padding-left: calc(var(--search-icon-size) + 15px);
+    padding-left: calc(var(--search-icon-size) + 17px);
 }
 
 .profile-info {
@@ -277,23 +280,27 @@ button {
     gap: 30px;
 }
 
+.profile-info a {
+    font-size: 1.125rem;
+}
+
 .header-bottom {
     --header-button-width: 100px;
 
     display: grid;
-    grid-template: 1fr 1fr / 1fr repeat(3, var(--header-button-width));
+    grid-template: 1fr / 1fr repeat(3, var(--header-button-width));
     grid-auto-flow: column;
     column-gap: 35px;
     align-items: center;
 }
 
 .header-bottom p {
-    grid-column: 1 / 2;
+    font-size: 0.95rem;
+    color: var(--accent);
 }
 
 .header-bottom button {
-    grid-row: 1 / -1;
-    height: 40px;
+    height: 38px;
 }
 
 
@@ -301,7 +308,7 @@ button {
 
 .main-content {
     font-size: 0.9rem;
-    padding: 50px 45px 15px 30px;
+    padding: 75px 45px 15px 30px;
 
     display: grid;
     grid-template: 1fr 1fr / 1fr 300px;
@@ -315,7 +322,7 @@ button {
 }
 
 .main-content>div {
-    --top-title-offset: -35px;
+    --top-title-offset: -36px;
     position: relative;
 }
 
